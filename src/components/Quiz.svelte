@@ -1,51 +1,48 @@
 <script>
-    import movieImages from '../images/movies';
-    import lockdownImages from '../images/lockdown';
+    import questions from '../data/questions';
 
     let hasReplied = false;
-    let imageIndex;
+    let activeQuestion = 0;
     let isReplyCorrect;
+    let score = 0;
 
-    const buildDataFromImages = (imageFiles, isReal) => (
-        Object.entries(imageFiles).map(file => (
-            {
-                name: file[0],
-                source: file[1],
-                isReal: isReal
-            }
-        ))
-    );
-
-    const allImages = [
-        ...buildDataFromImages(movieImages, false),
-        ...buildDataFromImages(lockdownImages, true)
-    ];
-
-    const resetQuiz = () => {
-        imageIndex = Math.floor(Math.random() * Object.keys(allImages).length);
-        hasReplied = false;
-        isReplyCorrect = undefined;
-    };
-
-    const checkResponse = (isReal) => {
-        if (isReal === allImages[imageIndex].isReal) { isReplyCorrect = true }
-        else { isReplyCorrect = false };
+    const checkResponse = (from) => {
+        if (from === questions[activeQuestion].answer) {
+            isReplyCorrect = true;
+            score++;
+        }
 
         hasReplied = true;
-
         return;
     };
 
+    const nextQuestion = () => {
+        hasReplied = false;
+        activeQuestion++;
+    };
+
+    const resetQuiz = () => {
+        questions.sort(() => Math.random() - 0.5);
+        activeQuestion = 0;
+    };
     resetQuiz();
 </script>
 
-<p>This picture was taken from...</p>
-<div>
-    <img src={allImages[imageIndex].source} />
-</div>
-<button on:click={() => checkResponse(false)}>a movie</button>
-<button on:click={() => checkResponse(true)}>the Coronavirus pandemic</button>
+{#if activeQuestion === questions.length}
+    <div>
+        <p>Quiz complete</p>
+        <p>Here is your score: {score}/{questions.length}</p>
 
+        <button on:click={resetQuiz}>Start over?</button>
+    </div>
+{:else}
+    <p>This picture was taken from...</p>
+    <div>
+        <img src=/images/{questions[activeQuestion].id+1}.jpg />
+    </div>
+    <button on:click={() => checkResponse('movie')}>a movie</button>
+    <button on:click={() => checkResponse('city')}>the Coronavirus pandemic</button>
+{/if}
 {#if hasReplied}
     <div>
         {#if isReplyCorrect}
@@ -54,7 +51,7 @@
             <p>Sorry, incorrect.</p>
         {/if}
 
-        <button on:click={resetQuiz}>Try again</button>
+        <button on:click={nextQuestion}>Next question</button>
     </div>
 {/if}
 
