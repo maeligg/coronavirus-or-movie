@@ -47,6 +47,12 @@
     <div>
         {#if isReplyCorrect}
             <p>Good answer, congratulations !</p>
+            <p>Do you know from what {questions[activeQuestion].answer} exactly?</p>
+            <ul>
+            {#each questions[activeQuestion].bonus as answer}
+                <li>{answer}</li>
+            {/each}
+            </ul>
         {:else}
             <p>Sorry, incorrect.</p>
         {/if}
@@ -58,5 +64,8 @@
 <style>
     img {
         width: 400px;
+    }
+    ul {
+        font-size:  1.6rem;
     }
 </style>
