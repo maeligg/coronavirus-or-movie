@@ -2,26 +2,46 @@ export default [
 	{
 		"id": 0,
 		"answer": "movie",
-		"bonus": ["28 days later", "Avatar", "Titanic"]
+		"bonus": "28 days later"
 	},{
 		"id": 1,
 		"answer": "city",
-		"bonus": ["Beijing", "Brussels", "Rome"]
+		"bonus": "Beijing"
 	},{
 		"id": 2,
 		"answer": "city",
-		"bonus": ["Chicago", "NYC", "Paris"]
+		"bonus": "Chicago"
 	},{
 		"id": 3,
 		"answer": "movie",
-		"bonus": ["Blindness", "Lord of the rings", "Lost in translation"]
+		"bonus": "Blindness"
 	},{
 		"id": 4,
 		"answer": "city",
-		"bonus": ["Oslo", "Madrid", "Berlin"]
+		"bonus": "Vatican"
 	},{
 		"id": 5,
 		"answer": "movie",
-		"bonus": ["I am a legend", "Kung fu panda", "Drive"]
+		"bonus": "I am a legend"
+	},{
+		"id": 6,
+		"answer": "movie",
+		"bonus": "Contagion"
+	},{
+		"id": 7,
+		"answer": "movie",
+		"bonus": "Vanilla sky"
+	},{
+		"id": 8,
+		"answer": "city",
+		"bonus": "Moscow"
+	},{
+		"id": 9,
+		"answer": "city",
+		"bonus": "New York city"
+	},{
+		"id": 10,
+		"answer": "city",
+		"bonus": "Venice"
 	}
 ]
