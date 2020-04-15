@@ -1,4 +1,5 @@
 <script>
+    import Score from './Score.svelte';
     import questions from '../data/questions';
     import { shuffle } from '../helpers/helpers';
 
@@ -57,6 +58,7 @@
     resetQuiz();
 </script>
 
+<Score score={score} />
 {#if activeQuestion === shuffledQuestions.length}
     <div>
         <p>Quiz complete</p>
