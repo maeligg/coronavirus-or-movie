@@ -36,12 +36,14 @@
         <button on:click={resetQuiz}>Start over?</button>
     </div>
 {:else}
-    <p>This picture was taken from...</p>
+    <h2>This picture was taken from...</h2>
     <div>
         <img src=/images/{questions[activeQuestion].id+1}.jpg />
     </div>
-    <button on:click={() => checkResponse('movie')}>a movie</button>
-    <button on:click={() => checkResponse('city')}>the Coronavirus pandemic</button>
+    <div class="buttons-wrapper">
+        <button on:click={() => checkResponse('movie')}>🎬 a movie</button>
+        <button on:click={() => checkResponse('city')}>🦠 the Coronavirus pandemic</button>
+    </div>
 {/if}
 {#if hasReplied}
     <div>
@@ -62,9 +64,25 @@
 {/if}
 
 <style>
-    img {
-        width: 400px;
+    h2 {
+		color: #fff;
+        font-size: 4rem;
+        font-weight: 800;
+        text-align: center;
+        -webkit-text-stroke: 2px #000;
     }
+    
+    img {
+        width: 100%;
+    }
+
+    .buttons-wrapper {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
     ul {
         font-size:  1.6rem;
     }
