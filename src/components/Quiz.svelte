@@ -13,6 +13,8 @@
     let bonusPropositions = [];
 
     const checkResponse = (from) => {
+        if (hasReplied) return;
+        
         if (from === shuffledQuestions[activeQuestion].answer) {
             isReplyCorrect = true;
             score++;
@@ -26,6 +28,8 @@
     };
 
     const checkBonus = (answer) => {
+        if (hasRepliedBonus) return;
+
         // If user answered correctly
         if (answer === shuffledQuestions[activeQuestion].bonus) {
             score++;
