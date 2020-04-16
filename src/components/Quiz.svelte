@@ -1,7 +1,7 @@
 <script>
     import Score from './Score.svelte';
     import questions from '../data/questions';
-    import { shuffle } from '../helpers/helpers';
+    import { shuffleArray } from '../helpers/helpers';
 
     let hasReplied = false;
     let hasRepliedBonus = false;
@@ -11,7 +11,6 @@
     let score = 0;
     let shuffledQuestions = [];
     let bonusPropositions = [];
-    let bonusCorrectAnswer = -1;
 
     const checkResponse = (from) => {
         if (from === shuffledQuestions[activeQuestion].answer) {
@@ -28,7 +27,7 @@
 
     const checkBonus = (answer) => {
         // If user answered correctly
-        if (answer === bonusPropositions[bonusCorrectAnswer].bonus) {
+        if (answer === shuffledQuestions[activeQuestion].bonus) {
             score++;
             isBonusCorrect = true;
         } else {
@@ -39,10 +38,9 @@
 
     const getRandomAnswers = (type, excluded) => {
         bonusPropositions = questions.filter(question => question.answer === type && question.bonus !== excluded);
-        bonusPropositions.sort(() => Math.random() - 0.5);
         bonusPropositions = bonusPropositions.slice(0, 2);
-        bonusCorrectAnswer = Math.floor(Math.random() * 3);
-        bonusPropositions.splice(bonusCorrectAnswer, 0, shuffledQuestions[activeQuestion]);
+        bonusPropositions.push(shuffledQuestions[activeQuestion]);
+        shuffleArray(bonusPropositions);
     };
 
     const nextQuestion = () => {
@@ -52,7 +50,7 @@
     };
 
     const resetQuiz = () => {
-        shuffledQuestions = shuffle(questions);
+        shuffledQuestions = shuffleArray([...questions]);
         activeQuestion = 0;
     };
     resetQuiz();
@@ -83,7 +81,7 @@
             {#each bonusPropositions as proposition, index}
                 <li>
                 <button on:click={() => checkBonus(proposition.bonus)}>
-                    {proposition.bonus}{#if index === bonusCorrectAnswer}🆗{/if}
+                    {proposition.bonus}
                 </button>
             </li>
             {/each}
