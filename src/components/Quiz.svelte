@@ -38,9 +38,9 @@
 
     const getRandomAnswers = (type, excluded) => {
         bonusPropositions = questions.filter(question => question.answer === type && question.bonus !== excluded);
-        bonusPropositions = bonusPropositions.slice(0, 2);
-        bonusPropositions.push(shuffledQuestions[activeQuestion]);
         shuffleArray(bonusPropositions);
+        bonusPropositions = bonusPropositions.slice(0, 2);
+        bonusPropositions.splice(Math.floor(Math.random() * 3), 0, shuffledQuestions[activeQuestion]);
     };
 
     const nextQuestion = () => {
