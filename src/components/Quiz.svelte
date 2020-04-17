@@ -96,7 +96,6 @@
                             on:click={() => checkBonus(proposition.bonus)}
                         >
                             {proposition.bonus}
-                            {#if hasRepliedBonus && isBonusCorrect && bonusReply === proposition.bonus}✅{/if}
                         </button>
                     </li>
                 {/each}
@@ -108,7 +107,14 @@
         </div>
     {/if}
     {#if hasRepliedBonus}
-        <div>
+        <div class="bonus-reply-wrapper">
+            <p class="bonus-reply-feedback">
+                {#if isBonusCorrect}
+                    Yeah, an extra point for you!
+                {:else}
+                    Nope !
+                {/if}
+            </p>
             <button on:click={nextQuestion}>Next question ➔</button>
         </div>
     {/if}
@@ -171,6 +177,14 @@
     .badAnswer {
         background: red;
         color: #fff;
+    }
+
+    .bonus-reply-wrapper {
+        display: flex;
+    }
+
+    .bonus-reply-feedback {
+        margin-right: 10px;
     }
 
     .quiz-complete {
