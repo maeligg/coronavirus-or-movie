@@ -150,6 +150,7 @@
 
     .bonus-propositions {
         display: flex;
+        flex-wrap: wrap;
         padding: 0;
     }
 
