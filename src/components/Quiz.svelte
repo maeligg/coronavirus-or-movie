@@ -108,13 +108,13 @@
     {/if}
     {#if hasRepliedBonus}
         <div class="bonus-reply-wrapper">
-            <p class="bonus-reply-feedback">
+            <span class="bonus-reply-feedback">
                 {#if isBonusCorrect}
                     Yeah, an extra point for you!
                 {:else}
                     Nope !
                 {/if}
-            </p>
+            </span>
             <button on:click={nextQuestion}>Next question ➔</button>
         </div>
     {/if}
@@ -181,10 +181,13 @@
 
     .bonus-reply-wrapper {
         display: flex;
+        align-items: center;
     }
 
     .bonus-reply-feedback {
         margin-right: 10px;
+        font-size: 2rem;
+        font-weight: 700;
     }
 
     .quiz-complete {

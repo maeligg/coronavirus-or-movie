@@ -23,7 +23,7 @@ body {
 
 @media (min-width: 800px) {
 	body {
-		background-image: radial-gradient(hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, .9)), url("images/background.svg");
+		background-image: radial-gradient(hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, .8)), url("images/background.svg");
 	}
 }
 
@@ -68,6 +68,7 @@ input[type="range"] {
 }
 
 button {
+	margin: 0;
 	background-color: #fff;
 	outline: none;
 	font-size: 2rem;
