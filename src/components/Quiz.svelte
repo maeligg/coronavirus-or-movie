@@ -56,6 +56,7 @@
     const resetQuiz = () => {
         shuffledQuestions = shuffleArray([...questions]);
         activeQuestion = 0;
+        score = 0;
     };
     resetQuiz();
 </script>
