@@ -5,6 +5,7 @@
 
     let hasReplied = false;
     let hasRepliedBonus = false;
+    let bonusReply;
     let activeQuestion = 0;
     let isReplyCorrect;
     let isBonusCorrect;
@@ -30,6 +31,7 @@
     const checkBonus = (answer) => {
         if (hasRepliedBonus) return;
 
+        bonusReply = answer;
         // If user answered correctly
         if (answer === shuffledQuestions[activeQuestion].bonus) {
             score++;
@@ -50,6 +52,7 @@
     const nextQuestion = () => {
         hasReplied = false;
         hasRepliedBonus = false
+        bonusReply = undefined;
         activeQuestion++;
     };
 
@@ -86,8 +89,14 @@
                 <ul class="bonus-propositions">
                 {#each bonusPropositions as proposition, index}
                     <li>
-                        <button class="bonus-answer" on:click={() => checkBonus(proposition.bonus)}>
+                        <button
+                            class:goodAnswer="{hasRepliedBonus && proposition.bonus === shuffledQuestions[activeQuestion].bonus}"
+                            class:badAnswer="{hasRepliedBonus && !isBonusCorrect && bonusReply === proposition.bonus}"
+                            class="bonus-answer"
+                            on:click={() => checkBonus(proposition.bonus)}
+                        >
                             {proposition.bonus}
+                            {#if hasRepliedBonus && isBonusCorrect && bonusReply === proposition.bonus}✅{/if}
                         </button>
                     </li>
                 {/each}
@@ -100,12 +109,6 @@
     {/if}
     {#if hasRepliedBonus}
         <div>
-            {#if isBonusCorrect}
-                <p>Yeah, an extra point for you!</p>
-            {:else}
-                <p>Nope!</p>
-            {/if}
-
             <button on:click={nextQuestion}>Next question ➔</button>
         </div>
     {/if}
@@ -156,6 +159,17 @@
 
     .bonus-answer {
         margin: 0 10px 10px 0;
+        line-height: 1.5;
+    }
+
+    .goodAnswer {
+        background: green;
+        color: #fff;
+    }
+
+    .badAnswer {
+        background: red;
+        color: #fff;
     }
 
     .quiz-complete {
