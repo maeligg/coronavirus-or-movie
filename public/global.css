@@ -74,10 +74,6 @@ button:disabled {
 	color: #999;
 }
 
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
 button:hover, button:focus {
 	background-color: #000;
 	color: #fff;

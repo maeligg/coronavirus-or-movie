@@ -18,7 +18,6 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		height: 100%;
 		max-width: 880px;
 		margin: 0 auto;

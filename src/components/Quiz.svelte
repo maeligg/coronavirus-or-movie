@@ -61,56 +61,67 @@
 </script>
 
 <Score score={score} />
-{#if activeQuestion === shuffledQuestions.length}
-    <div>
-        <p>Quiz complete</p>
-        <p>Here is your score: {score}/{shuffledQuestions.length}</p>
+<div class="quiz-wrapper">
+    {#if activeQuestion === shuffledQuestions.length}
+        <div class="quiz-complete">
+            <h3>Quiz complete</h3>
+            <p>Your final score: {score}/{shuffledQuestions.length}</p>
 
-        <button on:click={resetQuiz}>Start over?</button>
-    </div>
-{:else}
-    <h2>This picture was taken from...</h2>
-    <div>
-        <img src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
-    </div>
-    <div class="buttons-wrapper">
-        <button on:click={() => checkResponse('movie')}>🎬 a movie</button>
-        <button on:click={() => checkResponse('city')}>🦠 the Coronavirus pandemic</button>
-    </div>
-{/if}
-{#if hasReplied}
-    <div>
-        {#if isReplyCorrect}
-            <p>Good answer, congratulations !</p>
-            <p>Do you know from what {shuffledQuestions[activeQuestion].answer} exactly?</p>
-            <ul>
-            {#each bonusPropositions as proposition, index}
-                <li>
-                <button on:click={() => checkBonus(proposition.bonus)}>
-                    {proposition.bonus}
-                </button>
-            </li>
-            {/each}
-            </ul>
-        {:else}
-            <p>Sorry, incorrect.</p>
-            <button on:click={nextQuestion}>Next question</button>
-        {/if}
-    </div>
-{/if}
-{#if hasRepliedBonus}
-    <div>
-        {#if isBonusCorrect}
-            <p>Yeah, an extra point for you!</p>
-        {:else}
-            <p>Nope!</p>
-        {/if}
+            <button on:click={resetQuiz}>Start over?</button>
+        </div>
+    {:else}
+        <h2>This picture was taken from...</h2>
+        <div class="image-wrapper">
+            <img src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
+            <div class="buttons-wrapper">
+                <button on:click={() => checkResponse('movie')}>🎬 a movie</button>
+                <button on:click={() => checkResponse('city')}>🦠 the Coronavirus pandemic</button>
+            </div>
+        </div>
+    {/if}
+    {#if hasReplied}
+        <div>
+            {#if isReplyCorrect}
+                <p>Good answer, congratulations ! Do you know from what {shuffledQuestions[activeQuestion].answer} ?</p>
+                <ul class="bonus-propositions">
+                {#each bonusPropositions as proposition, index}
+                    <li>
+                        <button class="bonus-answer" on:click={() => checkBonus(proposition.bonus)}>
+                            {proposition.bonus}
+                        </button>
+                    </li>
+                {/each}
+                </ul>
+            {:else}
+                <p>Sorry, incorrect.</p>
+                <button on:click={nextQuestion}>Next question ➔</button>
+            {/if}
+        </div>
+    {/if}
+    {#if hasRepliedBonus}
+        <div>
+            {#if isBonusCorrect}
+                <p>Yeah, an extra point for you!</p>
+            {:else}
+                <p>Nope!</p>
+            {/if}
 
-        <button on:click={nextQuestion}>Next question</button>
-    </div>
-{/if}
+            <button on:click={nextQuestion}>Next question ➔</button>
+        </div>
+    {/if}
+</div>
 
 <style>
+    .quiz-wrapper {
+        margin: auto;
+    }
+
+    @media (min-width: 800px) {
+        .quiz-wrapper {
+            max-width: 600px;
+        }
+    }
+
     h2 {
 		color: #fff;
         font-size: 4rem;
@@ -118,9 +129,16 @@
         text-align: center;
         -webkit-text-stroke: 2px #000;
     }
+
+    h3 {
+        color: #000;
+        font-size: 3rem;
+    }
     
     img {
         width: 100%;
+        margin: 0 auto;
+        border: 4px solid #000;
     }
 
     .buttons-wrapper {
@@ -130,7 +148,18 @@
         flex-wrap: wrap;
     }
 
-    ul {
-        font-size:  1.6rem;
+    .bonus-propositions {
+        display: flex;
+        padding: 0;
+    }
+
+    .bonus-answer {
+        margin: 0 10px 10px 0;
+    }
+
+    .quiz-complete {
+        padding: 20px;
+        background: #fff;
+        border: 4px solid #000;
     }
 </style>
