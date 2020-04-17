@@ -155,6 +155,7 @@
         display: flex;
         flex-wrap: wrap;
         padding: 0;
+        list-style: none;
     }
 
     .bonus-answer {
