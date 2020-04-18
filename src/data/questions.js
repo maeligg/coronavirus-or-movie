@@ -55,5 +55,29 @@ export default [
 		"id": 13,
 		"answer": "city",
 		"bonus": "Madrid"
+	},{
+		"id": 14,
+		"answer": "city",
+		"bonus": "Wuhan"
+	},{
+		"id": 15,
+		"answer": "movie",
+		"bonus": "Carriers"
+	},{
+		"id": 16,
+		"answer": "city",
+		"bonus": "Debrecen"
+	},{
+		"id": 17,
+		"answer": "city",
+		"bonus": "Los Angeles"
+	},{
+		"id": 18,
+		"answer": "city",
+		"bonus": "Tehran"
+	},{
+		"id": 19,
+		"answer": "movie",
+		"bonus": "The Walking Dead"
 	}
 ]
