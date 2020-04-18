@@ -3,7 +3,7 @@
 </script>
 
 <div class="quiz-intro">
-    <div class="title-emoji"><img src="images/corona.png"> <img src="images/clap.png"></div>
+    <div class="title-emoji"><img src="images/corona.png" width="240" height="240"> <img src="images/clap.png" width="240" height="240"></div>
     <h1>COVID-19 or movie?</h1>
     <p>Can you guess if the following pictures were taken during the 2020 COVID-19 pandemic or from movie scenes?</p>
     <button on:click={handleClick}>Start the quiz ➔</button>
