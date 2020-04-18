@@ -20,7 +20,7 @@
         text-align: center;
     }
     .title-emoji img {
-        width: 8rem;
+        width: 5rem;
         height: auto;
         vertical-align: middle;
         display: inline-block;
@@ -32,21 +32,29 @@
 		text-transform: uppercase;
 		color: #fff;
         font-size: 4rem;
+        line-height: 1.2;
         font-weight: 800;
         text-align: center;
         -webkit-text-stroke: 3px #000;
     }
 
-    @media (min-width: 800px) {
-        h1 {
-            font-size: 5rem;
-        }
-    }
-
     p {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-left: auto;
         margin-right: auto;
         max-width: 600px;
+        line-height: 1.15;
+    }
+
+    @media (min-width: 750px) {
+        h1 {
+            font-size: 5rem;
+        }
+        p {
+            font-size: 3rem;
+        }
+        .title-emoji img {
+            width: 8rem;
+        }
     }
 </style>

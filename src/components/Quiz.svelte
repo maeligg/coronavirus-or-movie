@@ -97,7 +97,7 @@
     {#if hasReplied}
         <div>
             {#if isReplyCorrect}
-                <p>Good answer, congratulations ! Do you know from what {shuffledQuestions[activeQuestion].answer}?</p>
+                <p>Good answer, congratulations!<br>Do you know from what {shuffledQuestions[activeQuestion].answer}?</p>
                 <ul class="bonus-propositions">
                 {#each bonusPropositions as proposition, index}
                     <li>
@@ -121,14 +121,14 @@
     {/if}
     {#if hasRepliedBonus}
         <div class="bonus-reply-wrapper">
-            <span class="bonus-reply-feedback">
+            <p class="bonus-reply-feedback">
                 {#if isBonusCorrect}
                     Yeah, an extra point for you!
                 {:else}
                     <p>Sorry, incorrect.</p>
                 {/if}
-                <button on:click={nextQuestion}>Next question ➔</button>
-            </span>
+            </p>
+            <button on:click={nextQuestion}>Next question ➔</button>
         </div>
     {/if}
 </div>
@@ -136,19 +136,23 @@
 
 <style>
     .quiz-wrapper {
-        margin: 100px auto;
+        margin: 70px auto;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 750px) {
         .quiz-wrapper {
+            margin-top: 100px;
             max-width: 600px;
         }
     }
 
     h2 {
 		color: #fff;
-        font-size: 4rem;
+        font-size: 3.5rem;
+        line-height: 1.2;
         font-weight: 800;
+        margin-bottom: 20px;
+        margin-top: 0;
         text-align: center;
         -webkit-text-stroke: 2px #000;
     }
@@ -157,7 +161,7 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
-        border: 4px solid #000;
+        border: 3px solid #000;
     }
 
     .buttons-wrapper {
@@ -172,7 +176,7 @@
         width: 40%;
     }
     .buttons-wrapper img {
-        width: 4rem;
+        width: 3rem;
         height: auto;
         vertical-align: middle;
         margin: 0 auto;
@@ -201,14 +205,35 @@
         color: #fff;
     }
 
-    .bonus-reply-wrapper {
-        display: flex;
-        align-items: center;
+    p {
+        margin-top: 10px;
+        margin-bottom: 10px;    
     }
 
     .bonus-reply-feedback {
         margin-right: 10px;
         font-size: 2rem;
         font-weight: 700;
+    }
+    @media (min-width: 750px) {
+        h2 {
+            margin-bottom: 50px;
+            font-size: 4rem;
+        }
+        .buttons-wrapper img {
+            width: 4rem;
+        }
+        .image {
+            border: 4px solid #000;
+        }
+        .bonus-reply-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        p {
+            margin-top: 20px;
+            margin-bottom: 20px;    
+        }
+
     }
 </style>

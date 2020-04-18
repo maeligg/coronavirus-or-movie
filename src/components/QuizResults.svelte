@@ -20,7 +20,7 @@
         margin: auto;
         padding: 20px;
         background: #fff;
-        border: 4px solid #000;
+        border: 3px solid #000;
     }
 
     h3 {
@@ -45,6 +45,11 @@
     .twitter-icon {
         height: 20px;
         margin-right: 6px;
+    }
+    @media (min-width: 750px) {
+        .quiz-results {
+            border: 4px solid #000;
+        }
     }
 </style>
 
