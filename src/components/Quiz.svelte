@@ -80,7 +80,7 @@
     <div class="quiz-wrapper">
         <h2>This picture was taken from...</h2>
         <div class="image-wrapper">
-            <img class="image" src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
+            <img class="image" src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg width="1200" height="667" alt="" />
             <div class="buttons-wrapper">
                 <button 
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'city'}"
@@ -97,7 +97,7 @@
     {#if hasReplied}
         <div>
             {#if isReplyCorrect}
-                <p>Good answer, congratulations ! Do you know from what {shuffledQuestions[activeQuestion].answer} ?</p>
+                <p>Good answer, congratulations ! Do you know from what {shuffledQuestions[activeQuestion].answer}?</p>
                 <ul class="bonus-propositions">
                 {#each bonusPropositions as proposition, index}
                     <li>
@@ -155,6 +155,7 @@
     
     .image {
         width: 100%;
+        height: auto;
         margin: 0 auto;
         border: 4px solid #000;
     }

@@ -8,7 +8,7 @@
     <p>Bonus points: {scoreBonus} / {totalQuestions}</p>
 
     <div class="buttons-wrapper">
-        <button on:click={resetQuiz} class="reset-quiz">Start over ?</button>
+        <button on:click={resetQuiz} class="reset-quiz">Start over?</button>
         <a href="https://twitter.com/intent/tweet?text=I+played+'COVID-19+or+Movie'+on+https://covid19-or-movie.pizza/+I+got+{score}+points+and+{scoreBonus}+bonus+points+!" target="_blank" rel="noopener" class="button twitter-share-button">
             <img src="./images/twitter.svg" alt="twitter" class="twitter-icon" />
             Share on Twitter
