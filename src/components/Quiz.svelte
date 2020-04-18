@@ -49,8 +49,8 @@
     const getRandomAnswers = (type, excluded) => {
         bonusPropositions = questions.filter(question => question.answer === type && question.bonus !== excluded);
         shuffleArray(bonusPropositions);
-        bonusPropositions = bonusPropositions.slice(0, 2);
-        bonusPropositions.splice(Math.floor(Math.random() * 3), 0, shuffledQuestions[activeQuestion]);
+        bonusPropositions = bonusPropositions.slice(0, 3);
+        bonusPropositions.splice(Math.floor(Math.random() * 4), 0, shuffledQuestions[activeQuestion]);
     };
 
     const nextQuestion = () => {
@@ -78,7 +78,7 @@
     <QuizResults totalQuestions={shuffledQuestions.length} score={score} scoreBonus={scoreBonus} resetQuiz={resetQuiz} />
 {:else}
     <div class="quiz-wrapper">
-        <h2>This picture was taken from...</h2>
+        <h2>This picture is from...</h2>
         <div class="image-wrapper">
             <img class="image" src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg width="1200" height="667" alt="" />
             <div class="buttons-wrapper">
