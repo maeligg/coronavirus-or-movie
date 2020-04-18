@@ -125,7 +125,7 @@
                 {#if isBonusCorrect}
                     Yeah, an extra point for you!
                 {:else}
-                    <p>Sorry, incorrect.</p>
+                    Sorry, incorrect.
                 {/if}
             </p>
             <button on:click={nextQuestion}>Next question ➔</button>
