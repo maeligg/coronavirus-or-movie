@@ -1,8 +1,9 @@
 <script>
-    export let score;
+    export let current;
+    export let amount;
 </script>
 <div>
-    Score : {score}
+    Question {current + 1}/{amount}
 </div>
 
 <style>

@@ -84,7 +84,12 @@ button, .button {
 	color: #000;
 }
 
-button:hover, button:focus, .button:hover, .button:focus {
+button[disabled] {
+	color: #000;
+	cursor: auto;
+}
+
+button:not([disabled]):hover, button:not([disabled]):focus, .button:hover, .button:focus {
 	background-color: #000;
 	color: #fff;
 	text-decoration: none;
