@@ -5,13 +5,15 @@
 <div class="quiz-intro">
     <div class="title-emoji"><img src="images/corona.png"> <img src="images/clap.png"></div>
     <h1>COVID-19 or movie ?</h1>
-    <p>Can you guess if the following pictures were taken during the 2020 COVID-19 pandemic, or are scenes from a movie ?</p>
+    <p>Can you guess if the following pictures were taken during the 2020 COVID-19 pandemic or from movie scenes ?</p>
     <button on:click={handleClick}>Start the quiz ➔</button>
 </div>
 
 <style>
     .quiz-intro {
-        margin: 100px auto;
+        margin: auto;
+        text-align: center;
+        padding: 50px 0;
     }
 
     .title-emoji {
@@ -42,10 +44,9 @@
     }
 
     p {
-        font-size: 2.6rem;
-    }
-
-    button {
-        float: right;
+        font-size: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
     }
 </style>

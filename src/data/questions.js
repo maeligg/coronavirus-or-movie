@@ -43,5 +43,17 @@ export default [
 		"id": 10,
 		"answer": "city",
 		"bonus": "Venice"
+	},{
+		"id": 11,
+		"answer": "movie",
+		"bonus": "Rec"
+	},{
+		"id": 12,
+		"answer": "movie",
+		"bonus": "Open Your Eyes"
+	},{
+		"id": 13,
+		"answer": "city",
+		"bonus": "Madrid"
 	}
 ]
