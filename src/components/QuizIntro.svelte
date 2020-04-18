@@ -11,8 +11,9 @@
 
 <style>
     .quiz-intro {
-        margin: 100px auto;
+        margin: auto;
         text-align: center;
+        padding: 50px 0;
     }
 
     .title-emoji {
@@ -40,6 +41,6 @@
         font-size: 3rem;
         margin-left: auto;
         margin-right: auto;
-        max-width: 500px;
+        max-width: 600px;
     }
 </style>
