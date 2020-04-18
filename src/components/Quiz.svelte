@@ -88,12 +88,12 @@
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'city'}"
                     class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'city'}"
                     disabled="{hasReplied}"
-                    on:click={() => checkResponse('city')}>🦠 the COVID-19 pandemic</button>
+                    on:click={() => checkResponse('city')}>🦠 COVID-19</button>
                 <button 
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'movie'}"
                     class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'movie'}"
                     disabled="{hasReplied}"
-                    on:click={() => checkResponse('movie')}>🎬 a movie</button>
+                    on:click={() => checkResponse('movie')}>🎬 movie</button>
             </div>
         </div>
     {/if}
