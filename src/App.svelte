@@ -16,8 +16,11 @@
 
 <style>
 	main {
-		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		min-height: 100%;
+		max-width: 880px;
 		margin: 0 auto;
-		padding-top: 100px;
+		padding: 0 20px;
 	}
 </style>
