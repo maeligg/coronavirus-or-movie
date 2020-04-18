@@ -122,7 +122,7 @@
 
 <style>
     .quiz-wrapper {
-        margin: auto;
+        margin: 100px auto;
     }
 
     @media (min-width: 800px) {

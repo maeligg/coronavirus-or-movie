@@ -18,7 +18,7 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		min-height: 100%;
 		max-width: 880px;
 		margin: 0 auto;
 		padding: 0 20px;

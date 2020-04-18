@@ -11,7 +11,7 @@
 
 <style>
     .quiz-intro {
-        margin: auto;
+        margin: 100px auto;
     }
 
     .title-emoji {
