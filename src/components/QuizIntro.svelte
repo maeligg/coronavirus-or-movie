@@ -4,8 +4,8 @@
 
 <div class="quiz-intro">
     <div class="title-emoji">🦠 🎬</div>
-    <h1>Coronavirus or movie ?</h1>
-    <p>Can you guess if the following pictures were taken during the 2020 Coronavirus pandemic, or are scenes from a movie ?</p>
+    <h1>COVID-19 or movie ?</h1>
+    <p>Can you guess if the following pictures were taken during the 2020 COVID-19 pandemic, or are scenes from a movie ?</p>
     <button on:click={handleClick}>Start the quiz ➔</button>
 </div>
 

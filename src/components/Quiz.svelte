@@ -78,8 +78,8 @@
         <div class="image-wrapper">
             <img src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
             <div class="buttons-wrapper">
+                <button on:click={() => checkResponse('city')}>🦠 the COVID-19 pandemic</button>
                 <button on:click={() => checkResponse('movie')}>🎬 a movie</button>
-                <button on:click={() => checkResponse('city')}>🦠 the Coronavirus pandemic</button>
             </div>
         </div>
     {/if}
