@@ -1,5 +1,5 @@
 <script>
-    import Score from './Score.svelte';
+    import Index from './Index.svelte';
     import questions from '../data/questions';
     import { shuffleArray } from '../helpers/helpers';
 
@@ -64,7 +64,9 @@
     resetQuiz();
 </script>
 
-<Score score={score} />
+{#if activeQuestion < shuffledQuestions.length}
+    <Index current={activeQuestion} amount={shuffledQuestions.length} />
+{/if}
 <div class="quiz-wrapper">
     {#if activeQuestion === shuffledQuestions.length}
         <div class="quiz-complete">
