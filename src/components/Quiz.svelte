@@ -5,6 +5,7 @@
 
     let hasReplied = false;
     let hasRepliedBonus = false;
+    let userAnswer = null;
     let bonusReply;
     let activeQuestion = 0;
     let isReplyCorrect;
@@ -15,7 +16,8 @@
 
     const checkResponse = (from) => {
         if (hasReplied) return;
-        
+            
+        userAnswer = from;
         if (from === shuffledQuestions[activeQuestion].answer) {
             isReplyCorrect = true;
             score++;
@@ -51,6 +53,7 @@
 
     const nextQuestion = () => {
         hasReplied = false;
+        userAnswer = null;
         hasRepliedBonus = false
         bonusReply = undefined;
         activeQuestion++;
@@ -80,8 +83,16 @@
         <div class="image-wrapper">
             <img src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
             <div class="buttons-wrapper">
-                <button on:click={() => checkResponse('city')}>🦠 the COVID-19 pandemic</button>
-                <button on:click={() => checkResponse('movie')}>🎬 a movie</button>
+                <button 
+                    class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'city'}"
+                    class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'city'}"
+                    disabled="{hasReplied}"
+                    on:click={() => checkResponse('city')}>🦠 the COVID-19 pandemic</button>
+                <button 
+                    class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'movie'}"
+                    class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'movie'}"
+                    disabled="{hasReplied}"
+                    on:click={() => checkResponse('movie')}>🎬 a movie</button>
             </div>
         </div>
     {/if}
@@ -96,6 +107,7 @@
                             class:goodAnswer="{hasRepliedBonus && proposition.bonus === shuffledQuestions[activeQuestion].bonus}"
                             class:badAnswer="{hasRepliedBonus && !isBonusCorrect && bonusReply === proposition.bonus}"
                             class="bonus-answer"
+                            disabled="{hasRepliedBonus}"
                             on:click={() => checkBonus(proposition.bonus)}
                         >
                             {proposition.bonus}

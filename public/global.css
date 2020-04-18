@@ -78,11 +78,12 @@ button {
 	cursor: pointer;
 }
 
-button:disabled {
-	color: #999;
+button[disabled] {
+	color: black;
+	cursor: auto;
 }
 
-button:hover, button:focus {
+button:not([disabled]):hover, button:not([disabled]):focus {
 	background-color: #000;
 	color: #fff;
 }
