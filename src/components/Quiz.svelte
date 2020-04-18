@@ -80,18 +80,18 @@
     <div class="quiz-wrapper">
         <h2>This picture was taken from...</h2>
         <div class="image-wrapper">
-            <img src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
+            <img class="image" src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
             <div class="buttons-wrapper">
                 <button 
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'city'}"
                     class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'city'}"
                     disabled="{hasReplied}"
-                    on:click={() => checkResponse('city')}>🦠 COVID-19</button>
+                    on:click={() => checkResponse('city')}><img src="images/corona.png">COVID-19</button>
                 <button 
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'movie'}"
                     class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'movie'}"
                     disabled="{hasReplied}"
-                    on:click={() => checkResponse('movie')}>🎬 movie</button>
+                    on:click={() => checkResponse('movie')}><img src="images/clap.png">MOVIE</button>
             </div>
         </div>
     {#if hasReplied}
@@ -153,7 +153,7 @@
         -webkit-text-stroke: 2px #000;
     }
     
-    img {
+    .image {
         width: 100%;
         margin: 0 auto;
         border: 4px solid #000;
@@ -164,6 +164,18 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        min-width: 200px;
+    }
+
+    .buttons-wrapper button {
+        width: 40%;
+    }
+    .buttons-wrapper img {
+        width: 4rem;
+        height: auto;
+        vertical-align: middle;
+        margin: 0 auto;
+        display: block;
     }
 
     .bonus-propositions {
