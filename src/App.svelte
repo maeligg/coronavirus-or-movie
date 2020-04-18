@@ -1,9 +1,17 @@
 <script>
 	import QuizIntro from './components/QuizIntro.svelte';
 	import Quiz from './components/Quiz.svelte';
+    import questions from './data/questions';
 
 	let quizStarted = false;
 	const startQuiz = () => quizStarted = true;
+
+    const preloadImg = (url) => {
+        const img = new Image();
+        img.src = url;
+    }
+
+    questions.forEach(q => preloadImg(`/images/${q.id + 1}.jpg`));
 </script>
 <main>
 	{#if !quizStarted}
