@@ -68,9 +68,11 @@ input[type="range"] {
 	height: 0;
 }
 
-button {
+button, .button {
 	margin: 0;
+	padding: 8px;
 	background-color: #fff;
+	color: #000;
 	outline: none;
 	font-size: 2rem;
 	border: 4px solid #000;
@@ -78,11 +80,12 @@ button {
 	cursor: pointer;
 }
 
-button:disabled {
-	color: #999;
+.button:visited {
+	color: #000;
 }
 
-button:hover, button:focus {
+button:hover, button:focus, .button:hover, .button:focus {
 	background-color: #000;
 	color: #fff;
+	text-decoration: none;
 }

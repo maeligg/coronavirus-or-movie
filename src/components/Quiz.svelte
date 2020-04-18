@@ -1,5 +1,6 @@
 <script>
     import Score from './Score.svelte';
+    import QuizResults from './QuizResults.svelte';
     import questions from '../data/questions';
     import { shuffleArray } from '../helpers/helpers';
 
@@ -10,6 +11,7 @@
     let isReplyCorrect;
     let isBonusCorrect;
     let score = 0;
+    let scoreBonus = 0;
     let shuffledQuestions = [];
     let bonusPropositions = [];
 
@@ -34,7 +36,7 @@
         bonusReply = answer;
         // If user answered correctly
         if (answer === shuffledQuestions[activeQuestion].bonus) {
-            score++;
+            scoreBonus++;
             isBonusCorrect = true;
         } else {
             isBonusCorrect = false;
@@ -65,15 +67,10 @@
 </script>
 
 <Score score={score} />
-<div class="quiz-wrapper">
-    {#if activeQuestion === shuffledQuestions.length}
-        <div class="quiz-complete">
-            <h3>Quiz complete</h3>
-            <p>Your final score: {score}/{shuffledQuestions.length}</p>
-
-            <button on:click={resetQuiz}>Start over?</button>
-        </div>
-    {:else}
+{#if activeQuestion === shuffledQuestions.length}
+    <QuizResults totalQuestions={shuffledQuestions.length} score={score} scoreBonus={scoreBonus} resetQuiz={resetQuiz} />
+{:else}
+    <div class="quiz-wrapper">
         <h2>This picture was taken from...</h2>
         <div class="image-wrapper">
             <img src=/images/{shuffledQuestions[activeQuestion].id+1}.jpg alt="" />
@@ -82,44 +79,44 @@
                 <button on:click={() => checkResponse('movie')}>🎬 a movie</button>
             </div>
         </div>
-    {/if}
-    {#if hasReplied}
-        <div>
-            {#if isReplyCorrect}
-                <p>Good answer, congratulations ! Do you know from what {shuffledQuestions[activeQuestion].answer} ?</p>
-                <ul class="bonus-propositions">
-                {#each bonusPropositions as proposition, index}
-                    <li>
-                        <button
-                            class:goodAnswer="{hasRepliedBonus && proposition.bonus === shuffledQuestions[activeQuestion].bonus}"
-                            class:badAnswer="{hasRepliedBonus && !isBonusCorrect && bonusReply === proposition.bonus}"
-                            class="bonus-answer"
-                            on:click={() => checkBonus(proposition.bonus)}
-                        >
-                            {proposition.bonus}
-                        </button>
-                    </li>
-                {/each}
-                </ul>
-            {:else}
-                <p>Sorry, incorrect.</p>
-                <button on:click={nextQuestion}>Next question ➔</button>
-            {/if}
-        </div>
-    {/if}
-    {#if hasRepliedBonus}
-        <div class="bonus-reply-wrapper">
-            <span class="bonus-reply-feedback">
-                {#if isBonusCorrect}
-                    Yeah, an extra point for you!
+        {#if hasReplied}
+            <div>
+                {#if isReplyCorrect}
+                    <p>Good answer, congratulations ! Do you know from what {shuffledQuestions[activeQuestion].answer} ?</p>
+                    <ul class="bonus-propositions">
+                    {#each bonusPropositions as proposition, index}
+                        <li>
+                            <button
+                                class:goodAnswer="{hasRepliedBonus && proposition.bonus === shuffledQuestions[activeQuestion].bonus}"
+                                class:badAnswer="{hasRepliedBonus && !isBonusCorrect && bonusReply === proposition.bonus}"
+                                class="bonus-answer"
+                                on:click={() => checkBonus(proposition.bonus)}
+                            >
+                                {proposition.bonus}
+                            </button>
+                        </li>
+                    {/each}
+                    </ul>
                 {:else}
-                    Nope !
+                    <p>Sorry, incorrect.</p>
+                    <button on:click={nextQuestion}>Next question ➔</button>
                 {/if}
-            </span>
-            <button on:click={nextQuestion}>Next question ➔</button>
-        </div>
-    {/if}
-</div>
+            </div>
+        {/if}
+        {#if hasRepliedBonus}
+            <div class="bonus-reply-wrapper">
+                <span class="bonus-reply-feedback">
+                    {#if isBonusCorrect}
+                        Yeah, an extra point for you!
+                    {:else}
+                        Nope !
+                    {/if}
+                </span>
+                <button on:click={nextQuestion}>Next question ➔</button>
+            </div>
+        {/if}
+    </div>
+{/if}
 
 <style>
     .quiz-wrapper {
@@ -138,11 +135,6 @@
         font-weight: 800;
         text-align: center;
         -webkit-text-stroke: 2px #000;
-    }
-
-    h3 {
-        color: #000;
-        font-size: 3rem;
     }
     
     img {
@@ -189,11 +181,5 @@
         margin-right: 10px;
         font-size: 2rem;
         font-weight: 700;
-    }
-
-    .quiz-complete {
-        padding: 20px;
-        background: #fff;
-        border: 4px solid #000;
     }
 </style>
