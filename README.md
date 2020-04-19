@@ -1,8 +1,7 @@
 # COVID-19 or Movie ?
 
 We're going through strange times right now, and some pictures that we see in the news seem like they could come from a movie. Can you tell which is which?
-
-### https://covid19-or-movie.pizza/
+### [https://covid19-or-movie.pizza/](https://covid19-or-movie.pizza/)
 
 Made by [Mamboleoo](https://twitter.com/Mamboleoo) and [MaelB](https://twitter.com/MaelB) using [Svelte](https://svelte.dev/).
 
