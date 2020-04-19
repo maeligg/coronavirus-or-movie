@@ -66,6 +66,7 @@
         shuffledQuestions = shuffledQuestions.slice(0, 10);
         activeQuestion = 0;
         score = 0;
+        scoreBonus = 0;
     };
     resetQuiz();
 </script>
