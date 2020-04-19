@@ -86,12 +86,12 @@
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'city'}"
                     class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'city'}"
                     disabled="{hasReplied}"
-                    on:click={() => checkResponse('city')}><img src="images/corona.png">COVID-19</button>
+                    on:click={() => checkResponse('city')}><img src="images/corona.png" alt="Icon virus">COVID-19</button>
                 <button 
                     class:goodAnswer="{hasReplied && isReplyCorrect && userAnswer === 'movie'}"
                     class:badAnswer="{hasReplied && !isReplyCorrect && userAnswer === 'movie'}"
                     disabled="{hasReplied}"
-                    on:click={() => checkResponse('movie')}><img src="images/clap.png">MOVIE</button>
+                    on:click={() => checkResponse('movie')}><img src="images/clap.png" alt="Icon movie clapper">MOVIE</button>
             </div>
         </div>
     {#if hasReplied}
