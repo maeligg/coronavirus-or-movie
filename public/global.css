@@ -25,16 +25,9 @@ p {
 }
 
 a {
-	color: rgb(0,100,200);
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:visited {
-	color: rgb(0,80,160);
+	font-size: 2rem;
+	color: #000;
+	font-weight: 700;
 }
 
 label {
@@ -69,10 +62,7 @@ button, .button {
 	border: 3px solid #000;
 	font-weight: 700;
 	cursor: pointer;
-}
-
-.button:visited {
-	color: #000;
+	text-decoration: none;
 }
 
 button[disabled] {

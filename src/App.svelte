@@ -19,6 +19,7 @@
 	{:else}
 		<Quiz />
 	{/if}
+	<a href="https://github.com/maeligg/coronavirus-or-movie/blob/master/README.md" target="_blank" rel="noopener">About</a>
 </main>
 
 <style>
@@ -32,4 +33,10 @@
 		position: relative;
 		z-index: 1;
 	}
+
+	a {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 1.6rem;
+    }
 </style>

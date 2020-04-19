@@ -137,13 +137,7 @@
 <style>
     .quiz-wrapper {
         margin: 70px auto;
-    }
-
-    @media (min-width: 750px) {
-        .quiz-wrapper {
-            margin-top: 100px;
-            max-width: 600px;
-        }
+        flex-grow: 1;
     }
 
     h2 {
@@ -173,14 +167,13 @@
     }
 
     .buttons-wrapper button {
-        width: 40%;
+        min-width: 120px;
     }
     .buttons-wrapper img {
+        display: block;
         width: 3rem;
         height: auto;
-        vertical-align: middle;
         margin: 0 auto;
-        display: block;
     }
 
     .bonus-propositions {
@@ -215,7 +208,13 @@
         font-size: 2rem;
         font-weight: 700;
     }
+
     @media (min-width: 750px) {
+        .quiz-wrapper {
+            margin-top: 100px;
+            max-width: 600px;
+        }
+
         h2 {
             margin-bottom: 50px;
             font-size: 4rem;
@@ -234,6 +233,5 @@
             margin-top: 20px;
             margin-bottom: 20px;    
         }
-
     }
 </style>
