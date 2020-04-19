@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
+    "start": "sirv public",
     "dev": "rollup -c -w"
   },
   "devDependencies": {
@@ -14,5 +15,8 @@
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "sirv-cli": "^0.4.4"
   }
 }
