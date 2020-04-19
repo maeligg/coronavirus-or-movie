@@ -1,6 +1,6 @@
 # COVID-19 or Movie ?
 
-We're going through strange times right now, and some pictures that we see in the news seem like they could come from a movie. Can you tell which is which ?
+We're going through strange times right now, and some pictures that we see in the news seem like they could come from a movie. Can you tell which is which?
 Made by [Mamboleoo](https://twitter.com/Mamboleoo) and [MaelB](https://twitter.com/MaelB) using [Svelte](https://svelte.dev/).
 
 ![screenshot of COVID-19 or Movie site](https://covid19-or-movie.pizza/ "COVID-19 or Movie site")
