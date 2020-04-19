@@ -66,7 +66,7 @@ export default [
 	},{
 		"id": 16,
 		"answer": "city",
-		"bonus": "Debrecen"
+		"bonus": "Rio de janeiro"
 	},{
 		"id": 17,
 		"answer": "city",
@@ -79,5 +79,9 @@ export default [
 		"id": 19,
 		"answer": "movie",
 		"bonus": "The Walking Dead"
+	},{
+		"id": 20,
+		"answer": "city",
+		"bonus": "Atlanta"
 	}
 ]
